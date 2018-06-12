@@ -19,10 +19,12 @@ class NTN_Model(nn.Module):
     def __init__(self, input_size, word_emb_size, encoded_size, entity_emb_size, tensor_slice):
         '''
 
-        :param batch_size: the batch size when model passing in the data
         :param input_size: the total number of word tokens in the corpus
         :param word_emb_size: the input word embedding size for the relation decoder
         :param encoded_size: the size of the encoded embedding size for the relation/attribute
+        :param entity_emb_size: the learned embedding dimension of all entities
+        :param tensor_slice: The number of slice in the bilinear module.
+        The bilinear module has size entity_emb_size* entity_emb_size * tensor_slice
         '''
 
 
@@ -54,6 +56,10 @@ class NTN_Model(nn.Module):
 
 
     def init_emb(self):
+        '''
+        Used initlized embedding for each of entity Here the bilinear module and linear are initlized to be xavier_uniform
+        :return:
+        '''
         self.embeddings.weight.data.normal_(0, 1.0 / math.sqrt(self.embedding_size))
         nn.init.xavier_uniform_(self.bilinear.weight.data)
         nn.init.xavier_uniform_(self.linear.weight.data)
@@ -88,13 +94,13 @@ class NTN_Model(nn.Module):
 
     def save_embedding(self, file_name, use_cuda):
 
-        """Save all embeddings to file.
+        """
+        Save all embeddings to file.
         As this class only record word id, so the map from id to word has to be transfered from outside.
-        Args:
-            id2word: map from word id to word.
-            file_name: file name.
-        Returns:
-            None.
+        :param file_name: file name.
+        :param use_cuda: whether cuda is used when training
+        :return None
+
         """
         if use_cuda:
             embedding = self.embeddings.weight.cpu().data.numpy()
