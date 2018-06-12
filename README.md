@@ -1,4 +1,4 @@
-## Content Diffusion Network
+# RelPro
 
 This is currently on going project, the files contains in the folder will need modification in order to apapt to current project.
 
@@ -20,4 +20,4 @@ Please refer to `ntn_model` for detailed implementation.
 * `HIN2VEC`:[HIN2Vec: Explore Meta-paths in Heterogeneous Information Networks for Representation Learning](https://dl.acm.org/citation.cfm?id=3132953)
 Please refer to `hi2vec_model.py` for detailed implementation.
 
-# RelPro
+
