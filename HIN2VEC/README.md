@@ -1,5 +1,5 @@
-## NTN Model 
-This folder cotains the implementation of the NTN Model. The code implemented the main model mentioned in the [HIN2Vec: Explore Meta-paths in Heterogeneous Information Networks for Representation Learning](https://dl.acm.org/citation.cfm?id=3132953)
+## HIN2VEC Model 
+This folder cotains the implementation of the HIN2VEC Model. The code implemented the main model mentioned in the [HIN2Vec: Explore Meta-paths in Heterogeneous Information Networks for Representation Learning](https://dl.acm.org/citation.cfm?id=3132953)
 For input parameter of the function please refer the comments in the file `hin2vec_model.py`
 
 ## Data input format and Output result
